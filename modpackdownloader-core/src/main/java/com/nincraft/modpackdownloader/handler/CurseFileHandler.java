@@ -43,10 +43,16 @@ public class CurseFileHandler implements ModHandler {
 	}
 
 	private void downloadCurseMod(CurseFile curseFile) {
-		try {
-			downloadHelper.downloadFile(getCurseForgeDownloadLocation(curseFile));
-		} catch (IOException e) {
-			log.error(e);
+		int retry = 5;
+		while (retry > 0) {
+			try {
+				downloadHelper.downloadFile(getCurseForgeDownloadLocation(curseFile));
+				break;
+			} catch (IOException e) {
+				log.error(e);
+				log.debug("Retrying " + curseFile.projectName);
+			}
+			retry--;
 		}
 	}
 
