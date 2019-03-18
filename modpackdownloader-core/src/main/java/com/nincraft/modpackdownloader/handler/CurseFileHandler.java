@@ -50,7 +50,12 @@ public class CurseFileHandler implements ModHandler {
 				break;
 			} catch (IOException e) {
 				log.error(e);
-				log.debug("Retrying " + curseFile.projectName);
+				if (retry > 1) {
+					log.debug("Retrying " + curseFile.getProjectName());
+				} else {
+					log.error("Failed to download " + curseFile.getProjectName());
+					System.exit(1);
+				}
 			}
 			retry--;
 		}
