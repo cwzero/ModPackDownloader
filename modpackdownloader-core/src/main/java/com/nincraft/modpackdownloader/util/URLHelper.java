@@ -16,11 +16,12 @@ import java.util.regex.Pattern;
 @UtilityClass
 @Log4j2
 public final class URLHelper {
+	private String whitespaceRegex = "\\s";
 	private String whitespace = " ";
 	private String whitespaceEncoded = "%20";
 
 	public static String encodeSpaces(final String url) {
-		return url.replace(whitespace, whitespaceEncoded);
+		return url.replaceAll(whitespaceRegex, whitespaceEncoded);
 	}
 
 	public static String decodeSpaces(final String url) {
