@@ -11,6 +11,8 @@ import org.apache.commons.lang3.BooleanUtils;
 
 import java.io.IOException;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Observable;
 
 @Log4j2
@@ -60,7 +62,7 @@ public class DownloadHelper extends Observable {
 		if (!FileSystemHelper.isInLocalRepo(downloadableFile.getName(), decodedFileName) || arguments.isForceDownload()) {
 			val downloadedFile = FileSystemHelper.getLocalFile(downloadableFile);
 			try {
-				FileUtils.copyURLToFile(new URL(downloadableFile.getDownloadUrl()), downloadedFile);
+				FileUtils.copyURLToFile(new URL(URLHelper.encodeSpaces(downloadableFile.getDownloadUrl())), downloadedFile);
 			} catch (final IOException e) {
 				log.error("Could not download {}.", downloadableFile.getFileName(), e);
 				Reference.downloadCount++;
