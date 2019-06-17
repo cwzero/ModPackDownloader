@@ -10,3 +10,5 @@ logs/
 *.iml
 out/
 /**/dependency-reduced-pom.xml
+
+\.gradle/
