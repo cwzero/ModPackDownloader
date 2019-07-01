@@ -96,7 +96,7 @@ public class ModpackDownloaderCLITest {
 		ModpackDownloaderCLI.main(args);
 	}
 
-	@Test
+	//@Test
 	public void testAppUpdate() throws InterruptedException {
 		String[] args = {"-updateApp"};
 		ModpackDownloaderCLI.main(args);
