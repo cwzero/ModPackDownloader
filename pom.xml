@@ -6,7 +6,7 @@
 
 	<groupId>com.nincraft</groupId>
 	<artifactId>modpackdownloader</artifactId>
-	<version>0.5.5_fix</version>
+	<version>0.5.6_fix</version>
 	<packaging>pom</packaging>
 	<name>Modpack Downloader</name>
 	<properties>
